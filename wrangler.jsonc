@@ -1,0 +1,17 @@
+{
+  "name": "test-api",
+  "main": "worker/index.ts",
+  "compatibility_date": "2025-06-01",
+  "containers": [
+    {
+      "class_name": "TestApiContainer",
+      "image": "./Dockerfile",
+      "instance_type": "lite",
+      "max_instances": 1
+    }
+  ],
+  "durable_objects": {
+    "bindings": [{ "class_name": "TestApiContainer", "name": "TEST_API" }]
+  },
+  "migrations": [{ "new_sqlite_classes": ["TestApiContainer"], "tag": "v1" }]
+}
